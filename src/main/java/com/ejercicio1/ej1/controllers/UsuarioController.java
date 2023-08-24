@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UsuarioController {
 
-    @RequestMapping(value = "usuarios")
-    public Usuario getUsuarios() {
+    @RequestMapping(value = "usuario")
+    public Usuario getUsuario() {
         Usuario usuario = new Usuario();
         usuario.setNombre("juan");
         usuario.setApellido("Gonzales");
@@ -17,6 +17,19 @@ public class UsuarioController {
         usuario.setTelefono("451122321");
         return usuario;
     }
+
+    @RequestMapping(value = "usuarios")
+    public Usuario getUsuarios() {
+        Usuario usuario = new Usuario();
+        usuario.setNombre("usuarios");
+        usuario.setApellido("usuarios");
+        usuario.setEmail("usuarios@gmail.com");
+        usuario.setTelefono("usuarios451122321");
+        return usuario;
+    }
+
+
+
 
 }
 
