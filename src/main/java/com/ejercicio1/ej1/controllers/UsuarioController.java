@@ -3,10 +3,7 @@ package com.ejercicio1.ej1.controllers;
 import com.ejercicio1.ej1.dao.UsuarioDao;
 import com.ejercicio1.ej1.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,13 +24,11 @@ public class UsuarioController {
         usuarioDao.eliminar(id);
     }
 
+    @RequestMapping(value = "api/usuarios", method = RequestMethod.POST)
+    public void registrarUsuario(@RequestBody Usuario usuario) {
+        usuarioDao.registrar(usuario);
+    }
 
-
-
-  /* @RequestMapping(value = "api/usuario", method = RequestMethod.GET)
-    public List<Usuario> getUsuario() {
-        return usuarioDao.getUsuario();
-    } */
 
 }
 

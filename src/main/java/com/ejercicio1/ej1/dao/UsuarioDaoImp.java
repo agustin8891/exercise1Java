@@ -29,5 +29,8 @@ public class UsuarioDaoImp implements UsuarioDao {
         }
     }
 
-    // Implementa el resto de los métodos de la interfaz aquí, si es necesario
+    @Override
+    public void registrar(Usuario usuario) {
+        entityManager.merge(usuario);
+    }
 }
