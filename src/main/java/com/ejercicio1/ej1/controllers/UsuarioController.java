@@ -1,35 +1,25 @@
 package com.ejercicio1.ej1.controllers;
 
+import com.ejercicio1.ej1.dao.UsuarioDao;
 import com.ejercicio1.ej1.models.Usuario;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 
 @RestController
 public class UsuarioController {
 
-    @RequestMapping(value = "usuario")
-    public Usuario getUsuario() {
-        Usuario usuario = new Usuario();
-        usuario.setNombre("juan");
-        usuario.setApellido("Gonzales");
-        usuario.setEmail("juan@gmail.com");
-        usuario.setTelefono("451122321");
-        return usuario;
-    }
+    @Autowired
+    private UsuarioDao usuarioDao;
 
     @RequestMapping(value = "usuarios")
-    public Usuario getUsuarios() {
-        Usuario usuario = new Usuario();
-        usuario.setNombre("usuarios");
-        usuario.setApellido("usuarios");
-        usuario.setEmail("usuarios@gmail.com");
-        usuario.setTelefono("usuarios451122321");
-        return usuario;
+    public List<Usuario> getUsuarios() {
+        return usuarioDao.getUsuarios();
     }
-
-
-
 
 }
 
